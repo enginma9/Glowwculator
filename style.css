@@ -1,0 +1,256 @@
+
+/* Adapted a lot of the glow effects from: https://codersblock.com/blog/creating-glow-effects-with-css/ */
+
+body {
+  background-color: #000000;
+  font: small-caps bold 20px Arial, serif;
+  color: #ddddff;
+  margin: 0;
+  width:100vw;
+  height:100vh;
+  box-shadow:
+  inset 0 0 25px #fff,      /* inner */
+  inset 10px 0 40px #0ff,   /* inner left short */
+  inset -10px 0 40px #0ff,  /* inner right short */
+  inset 10px 0 150px #f0f,  /* inner left broad */
+  inset -10px 0 150px #0ff; /* inner right broad */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#popup{
+  background-color: black;
+  border-radius:10px;
+  height: 200px;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+  position: absolute;
+  box-shadow:0 0 50px #fff,
+  -5px 0 40px #f0f,
+  5px 0 40px #0ff;
+}
+
+form{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slider{
+  background-color: #f0f;
+}
+
+.hide{
+  display:none;
+}
+
+/* begin link stuff */
+a {
+  text-decoration: none;
+  color: #ddddff;
+}
+a.glow, a.glow:hover, a.glow:focus
+{
+	text-decoration: none;
+	color: #eee;
+	text-shadow: none;
+	-webkit-transition: 300ms linear 0s;
+	-moz-transition: 300ms linear 0s;
+	-o-transition: 300ms linear 0s;
+	transition: 300ms linear 0s;
+	outline: 0 none;
+}
+a.glow:hover, a.glow:focus
+{
+	color: #000;
+	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+}
+.textshadow a.backlit:hover, .textshadow a.backlit:focus
+{
+	color: #336;
+}
+/* end link stuff */
+
+#calc_box{
+  box-shadow:0 0 50px #fff,
+  -5px 0 40px #f0f,
+  5px 0 40px #0ff;
+  height: 80vh;
+  width: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 2vw;
+  padding: 1vh;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 99vh;
+  width: 99vw;
+}
+#container3{
+  margin:50px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.superman{
+  clip-path: polygon(20% 20%, 80% 20%, 100% 50%, 50% 100%, 0% 50%);
+  height: 3vw;
+  width: 3vw;
+  box-shadow: inset 0 0 25px #fff,
+  inset 10px 0 40px #f0f,
+  inset -10px 0 40px #0ff,
+  inset 10px 0 150px #f0f,
+  inset -10px 0 150px #0ff;
+  transition: transform 1s;
+}
+
+.supermans{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}
+
+#title{
+  font-size: 9vh;
+  font-weight: bolder;
+  text-shadow:
+    0 0 50px #fff,
+    -5px 0 40px #f0f,
+    5px 0 40px #0ff;
+}
+.prompt{
+  color: white;
+  background-color: #00000055;
+  height: 5vh;
+  width: 20vh;
+  box-shadow:
+    0 0 30px #fff,
+    5px 5px 20px #f0f,
+    -5px 0 20px #0ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1vw;
+}
+
+#bottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  width: 60vw;
+}
+
+.dive {
+  box-shadow:
+    inset 0 0 25px #99f,
+    inset 10px 0 40px #90f,
+    inset -10px 0 40px #0ff,
+    inset 10px 0 150px #90f,
+    inset -10px 0 150px #0ff,
+    0 0 50px #fff,
+    -5px 0 40px #f0f,
+    5px 0 40px #0ff;
+}
+
+.dive2{
+  box-shadow:
+    inset 0 0 25px #779,
+    inset 10px 0 40px #709,
+    inset -10px 0 40px #099,
+    inset 10px 0 150px #709,
+    inset -10px 0 150px #099,
+    0 0 50px #999,
+    -5px 0 40px #909,
+    5px 0 40px #099;
+}
+
+.hexagone2{
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  height:7.28vh;                   /*52/10=5.2*/   /*52/100=.52 x7=3.64 x2=7.28*/
+  width: 8.4vh;                     /*60/10=.6*/   /*60/100=.6 x7=4.2 x2=8.4*/
+}
+
+div.hexdiv2:hover {
+  transform: translateY(-10px);
+  filter: drop-shadow(-3px 3px 3px white);
+  box-shadow:
+  inset 0 0 50px #fff,
+  inset 20px 0 80px #f0f,
+  inset -20px 0 80px #0ff,
+  inset 20px 0 300px #f0f,
+  inset -20px 0 300px #0ff;
+}
+
+
+.hexdiv2{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertiland{
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: -2.1vh;            /*-15/10=-1.5*/   /*-15/100=-.15 x7=-1.05 x2=-2.1*/
+}
+
+.v_even{
+
+}
+
+.v_odd{                             /* Originally had vertical and horizontal hexes, and needed to keep them separate */
+  transform: translateY(3.64vh);   /*26/10=2.6*/   /*26/100=.26 x7=1.82 x2=3.64*/
+}
+/* on ?/0, make it really embarassing */
+.l{
+  transform: rotate(.25turn);
+}
+.r{
+  transform: rotate(-.25turn);
+}
+
+.u{
+  transform: rotate(.5turn);
+}
+
+.d{
+  transform: rotate(0turn);
+}
+.dl{
+  transform: rotate(45deg);
+}
+.dr{
+  transform: rotate(-45deg);
+}
+.ul{
+  transform: rotate(135deg);
+}
+.ur{
+  transform: rotate(-135deg);
+}
+
+.Glow_Item{
+  position: absolute;
+}
