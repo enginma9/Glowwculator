@@ -253,4 +253,8 @@ div.hexdiv2:hover {
 
 .Glow_Item{
   position: absolute;
+  font-size: 1.7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
