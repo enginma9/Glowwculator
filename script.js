@@ -7,6 +7,15 @@ var M1 = 0;
 var M2 = 0;
 let previous = 0;
 let operator = '';
+const LEFT_2 = 37;
+const UP_2 = 38;
+const RIGHT_2 = 39;
+const DOWN_2 = 40;
+const LEFT_1 = 65;
+const RIGHT_1 = 68;
+const DOWN_1 = 83;
+const UP_1 = 87;
+const ShipInstruction = [UP_2,DOWN_2,LEFT_2,RIGHT_2,UP_1,DOWN_1,LEFT_1,RIGHT_1];
 
 let add = (a,b) => a+b;
 let subtract = (a,b) => a-b;
@@ -44,10 +53,13 @@ periodButton.addEventListener( 'click', function(){ operate( 110 , '.' )} );
 const piButton = document.getElementById("pi");
 piButton.addEventListener( 'click', function(){
   console.log("pi button");
-  let pi = Math.PI;
-  pi = pi.toFixed(7)
-  inputString = pi.toString();
-  inputArea.innerText = inputString;
+  if(inputString==''){
+    let pi = Math.PI;
+    pi = pi.toFixed(7)
+    inputString = pi.toString();
+    inputArea.innerText = inputString;
+  }
+
 } );
 const mcButton = document.getElementById("mem_clear");
 mcButton.addEventListener( 'click', function(){
@@ -57,21 +69,21 @@ mcButton.addEventListener( 'click', function(){
 } );
 const m1Button = document.getElementById("memory1");
 m1Button.addEventListener( 'click', function(){
-  console.log("m1 button")
+  console.log("M1 button")
   if(inputString!=''){
-    m1 = Number(inputString);
+    M1 = Number(inputString);
   }else{
-    inputString = m1.toString();
+    inputString = M1.toString();
     inputArea.innerText = inputString;
   }
 } );
 const m2Button = document.getElementById("memory2");
 m2Button.addEventListener( 'click', function(){
-  console.log("m1 button")
+  console.log("M2 button")
   if(inputString!=''){
-    m2 = Number(inputString);
+    M2 = Number(inputString);
   }else{
-    inputString = m2.toString();
+    inputString = M2.toString();
     inputArea.innerText = inputString;
   }
  } );
@@ -188,7 +200,10 @@ window.addEventListener('keydown', keyOperation);
 
 // dev at work:
 function operate(code, value){
-  if(code>=48 && code<=57){ // 0-9
+  if ( ShipInstruction.includes(code) ){
+    zoom(code);
+    return 0;
+  }else if(code>=48 && code<=57){ // 0-9
     typeIn(value)
   }else if(code == 110 || code == 190 ){
     if(inputString.includes('.')){
@@ -240,21 +255,49 @@ function doMath(operator){
   }//end switch
 }//end doMath()
 
-/*
+function forward(ship){
+  console.log("forward ship", ship)
+  //if facing toward edge (0 is straight down)
+    //check to see if moving that direction would put past boundary
+      // if so, move, if not, do nothing.
+  //else move in direction of facing
+}
+function back(ship){
+  console.log("back ship", ship)
+}
+function turnShip(ship, turns){
+  if( turns == 1 ){
+    console.log("turn ship", ship, "right")
+  }else if(turns == -1){
+    console.log("turn ship", ship, "left")
+  }
+}
 
-//if ( ShipInstruction.includes(keyCode) ){
-  // send to ship function
-  return 0;
-
-//take out
-const LEFT_2 = 37;
-const UP_2 = 38;
-const RIGHT_2 = 39;
-const DOWN_2 = 40;
-const LEFT_1 = 65;
-const RIGHT_1 = 68;
-const DOWN_1 = 83;
-const UP_1 = 87;
-const ShipInstruction = [UP_2,DOWN_2,LEFT_2,RIGHT_2,UP_1,DOWN_1,LEFT_1,RIGHT_1];
-
-*/
+function zoom(code){
+  switch(code){
+    case UP_1:
+      forward(1);
+      break;
+    case DOWN_1:
+      back(1);
+      break;
+    case LEFT_1:
+      turnShip(1,-1);
+      break;
+    case RIGHT_1:
+      turnShip(1,1);
+      break;
+    case UP_2:
+      forward(2);
+      break;
+    case DOWN_2:
+      back(2);
+      break;
+    case LEFT_2:
+      turnShip(2,-1);
+      break;
+    case RIGHT_2:
+      turnShip(2,1);
+      break;
+  }
+}
