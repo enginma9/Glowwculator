@@ -20,34 +20,6 @@ body {
   align-items: center;
 }
 
-#popup{
-  background-color: black;
-  border-radius:10px;
-  height: 200px;
-  width: 200px;
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -100px;
-  position: absolute;
-  box-shadow:0 0 50px #fff,
-  -5px 0 40px #f0f,
-  5px 0 40px #0ff;
-}
-
-form{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.slider{
-  background-color: #f0f;
-}
-
 .hide{
   display:none;
 }
@@ -136,17 +108,17 @@ a.glow:hover, a.glow:focus
     -5px 0 40px #f0f,
     5px 0 40px #0ff;
 }
-.prompt{
+.output{
   color: white;
   background-color: #00000055;
-  height: 5vh;
-  width: 20vh;
+  height: 15vh;
+  width: 40vh;
   box-shadow:
     0 0 30px #fff,
     5px 5px 20px #f0f,
     -5px 0 20px #0ff;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 1vw;
@@ -223,32 +195,12 @@ div.hexdiv2:hover {
 .v_odd{                             /* Originally had vertical and horizontal hexes, and needed to keep them separate */
   transform: translateY(3.64vh);   /*26/10=2.6*/   /*26/100=.26 x7=1.82 x2=3.64*/
 }
-/* on ?/0, make it really embarassing */
+
 .l{
   transform: rotate(.25turn);
 }
 .r{
   transform: rotate(-.25turn);
-}
-
-.u{
-  transform: rotate(.5turn);
-}
-
-.d{
-  transform: rotate(0turn);
-}
-.dl{
-  transform: rotate(45deg);
-}
-.dr{
-  transform: rotate(-45deg);
-}
-.ul{
-  transform: rotate(135deg);
-}
-.ur{
-  transform: rotate(-135deg);
 }
 
 .Glow_Item{
